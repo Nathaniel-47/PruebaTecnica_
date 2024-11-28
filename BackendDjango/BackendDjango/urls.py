@@ -1,10 +1,10 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from myBackend.views import UserViewSet
-
-router = DefaultRouter()
-router.register(r'users', UserViewSet)
+from django.urls import path
+from myBackend.views import RegisterUserView, VerifyEmailView, SetPasswordView, GenerateWinnerView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('register/', RegisterUserView.as_view(), name='register'),
+    path('verify-email/', VerifyEmailView.as_view(), name='verify-email'),
+    path('set-password/', SetPasswordView.as_view(), name='set-password'),
+    path('generate-winner/', GenerateWinnerView.as_view(), name='generate-winner'),
+    
 ]
